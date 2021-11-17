@@ -1,6 +1,10 @@
 ### Starting build.
 # Target: ftest.ml.depends, tags: { debug, extension:ml, file:ftest.ml, ocaml, ocamldep, quiet, traverse }
+<<<<<<< HEAD
 ocamldep.opt -modules ftest.ml > ftest.ml.depends # cached
+=======
+/mnt/commetud/GEI/OCaml/.opam/4.08.1/bin/ocamldep.opt -modules ftest.ml > ftest.ml.depends
+>>>>>>> origin/Nailik
 # Target: gfile.mli.depends, tags: { debug, extension:mli, file:gfile.mli, ocaml, ocamldep, quiet, traverse }
 ocamldep.opt -modules gfile.mli > gfile.mli.depends # cached
 # Target: graph.mli.depends, tags: { debug, extension:mli, file:graph.mli, ocaml, ocamldep, quiet, traverse }
@@ -14,6 +18,7 @@ ocamldep.opt -modules Tools.mli > Tools.mli.depends # cached
 # Target: Tools.cmi, tags: { byte, compile, debug, extension:mli, file:Tools.mli, interf, ocaml, quiet, traverse }
 ocamlc.opt -c -g -o Tools.cmi Tools.mli # cached
 # Target: ftest.cmo, tags: { byte, compile, debug, extension:cmo, extension:ml, file:ftest.cmo, file:ftest.ml, implem, ocaml, quiet, traverse }
+<<<<<<< HEAD
 ocamlc.opt -c -g -o ftest.cmo ftest.ml # cached
 # Target: gfile.ml.depends, tags: { debug, extension:ml, file:gfile.ml, ocaml, ocamldep, quiet, traverse }
 ocamldep.opt -modules gfile.ml > gfile.ml.depends # cached
@@ -34,3 +39,17 @@ Error: The implementation Tools.ml does not match the interface Tools.cmi:
        File "Tools.ml", line 5, characters 4-8: Actual declaration
 Command exited with code 2.
 # Compilation unsuccessful.
+=======
+/mnt/commetud/GEI/OCaml/.opam/4.08.1/bin/ocamlc.opt -c -g -o ftest.cmo ftest.ml
+# Target: gfile.ml.depends, tags: { debug, extension:ml, file:gfile.ml, ocaml, ocamldep, quiet, traverse }
+/mnt/commetud/GEI/OCaml/.opam/4.08.1/bin/ocamldep.opt -modules gfile.ml > gfile.ml.depends # cached
+# Target: gfile.cmo, tags: { byte, compile, debug, extension:cmo, extension:ml, file:gfile.cmo, file:gfile.ml, implem, ocaml, quiet, traverse }
+/mnt/commetud/GEI/OCaml/.opam/4.08.1/bin/ocamlc.opt -c -g -o gfile.cmo gfile.ml # cached
+# Target: graph.ml.depends, tags: { debug, extension:ml, file:graph.ml, ocaml, ocamldep, quiet, traverse }
+/mnt/commetud/GEI/OCaml/.opam/4.08.1/bin/ocamldep.opt -modules graph.ml > graph.ml.depends
+# Target: graph.cmo, tags: { byte, compile, debug, extension:cmo, extension:ml, file:graph.cmo, file:graph.ml, implem, ocaml, quiet, traverse }
+/mnt/commetud/GEI/OCaml/.opam/4.08.1/bin/ocamlc.opt -c -g -o graph.cmo graph.ml
+# Target: ftest.byte, tags: { byte, debug, dont_link_with, extension:byte, file:ftest.byte, link, ocaml, program, quiet, traverse }
+/mnt/commetud/GEI/OCaml/.opam/4.08.1/bin/ocamlc.opt -g graph.cmo gfile.cmo ftest.cmo -o ftest.byte
+# Compilation successful.
+>>>>>>> origin/Nailik

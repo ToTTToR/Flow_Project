@@ -1,5 +1,9 @@
 open Gfile
+<<<<<<< HEAD
 open Tools
+=======
+(*pen Tools*)
+>>>>>>> origin/Nailik
 
 let () =
 
@@ -28,10 +32,15 @@ let () =
 
   (* Open file *)
   let graph = from_file infile in
+<<<<<<< HEAD
 
   let graph1 = (clone_nodes graph) in
   let graph2 = add_arc graph1 1 2 3 in
   let graph3 = gmap graph2 string_of_int in
+=======
+  
+  (*let graph1 = (clone_nodes graph) in*)
+>>>>>>> origin/Nailik
   (* Rewrite the graph that has been read. *)
   let () = write_file outfile graph3 in
 
