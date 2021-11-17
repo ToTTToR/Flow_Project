@@ -8,7 +8,7 @@ remove :
 	rm -f *.cmi *.cmo ftest
 
 build : remove helper
-	ocamlc -o ftest graph.cmo gfile.cmo ftest.ml
+	ocamlc -o ftest graph.cmo gfile.cmo Tools.cmo ftest.ml
 
 helper :
-	ocamlc -c graph.mli graph.ml gfile.mli gfile.ml
+	ocamlc -c graph.mli graph.ml gfile.mli gfile.ml Tools.mli Tools.ml
