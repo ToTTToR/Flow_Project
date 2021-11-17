@@ -28,9 +28,8 @@ let () =
 
   (* Open file *)
   let graph = from_file infile in
-
-  let graph1 = (clone_nodes graph) in
-  let graph2 = add_arc graph1 1 2 3 in
+  let graph1 = gmap graph int_of_string in
+  let graph2 = add_arc graph1 0 2 4 in
   let graph3 = gmap graph2 string_of_int in
   (* Rewrite the graph that has been read. *)
   let () = write_file outfile graph3 in
