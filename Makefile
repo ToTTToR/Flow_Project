@@ -1,14 +1,14 @@
-buildbyte : remove
+buildbyte : 
 	ocamlbuild ftest.byte
 
-buildnat : remove
+buildnat : 
 	ocamlbuild ftest.native
 
-remove :
-	rm -f *.cmi *.cmo ftest
+clean :
+	rm -f *.cmi *.cmo ftest ftest.native ftest.byte
 
 build : remove helper
-	ocamlc -o ftest graph.cmo gfile.cmo ftest.ml
+	ocamlc -o ftest graph.cmo gfile.cmo Tools.cmo ftest.ml
 
 helper :
-	ocamlc -c graph.mli graph.ml gfile.mli gfile.ml
+	ocamlc -c graph.mli graph.ml gfile.mli gfile.ml Tools.mli Tools.ml
