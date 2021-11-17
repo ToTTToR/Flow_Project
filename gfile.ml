@@ -98,4 +98,17 @@ let from_file path =
   
   close_in infile ;
   final_graph
+
+let export path gr =
+let infile = open_out path in
+
+  fprintf infile "digraph Test_Graph{\n";
+  fprintf infile "rankdir=LR\n";
+  fprintf infile "node[shape = circle]\n";
+  e_iter gr (fun id1 id2 lbl -> fprintf infile "%d -> %d [label = \"%s\"]\n" id1 id2 lbl) ;
+  fprintf infile "}\n";
+  close_out infile ;
+  ()
+
   
+    
