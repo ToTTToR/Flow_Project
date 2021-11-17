@@ -5,7 +5,7 @@ buildnat : remove
 	ocamlbuild ftest.native
 
 remove :
-	rm -f *.cmi *.cmo ftest
+	rm -f *.cmi *.cmo ftest ftest.native ftest.byte
 
 build : remove helper
 	ocamlc -o ftest graph.cmo gfile.cmo Tools.cmo ftest.ml 

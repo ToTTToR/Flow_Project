@@ -1,26 +1,36 @@
 ### Starting build.
 # Target: ftest.ml.depends, tags: { debug, extension:ml, file:ftest.ml, ocaml, ocamldep, quiet, traverse }
-/mnt/commetud/GEI/OCaml/.opam/4.08.1/bin/ocamldep.opt -modules ftest.ml > ftest.ml.depends
+ocamldep.opt -modules ftest.ml > ftest.ml.depends # cached
 # Target: gfile.mli.depends, tags: { debug, extension:mli, file:gfile.mli, ocaml, ocamldep, quiet, traverse }
-/mnt/commetud/GEI/OCaml/.opam/4.08.1/bin/ocamldep.opt -modules gfile.mli > gfile.mli.depends # cached
+ocamldep.opt -modules gfile.mli > gfile.mli.depends # cached
 # Target: graph.mli.depends, tags: { debug, extension:mli, file:graph.mli, ocaml, ocamldep, quiet, traverse }
-/mnt/commetud/GEI/OCaml/.opam/4.08.1/bin/ocamldep.opt -modules graph.mli > graph.mli.depends # cached
+ocamldep.opt -modules graph.mli > graph.mli.depends # cached
 # Target: graph.cmi, tags: { byte, compile, debug, extension:mli, file:graph.mli, interf, ocaml, quiet, traverse }
-/mnt/commetud/GEI/OCaml/.opam/4.08.1/bin/ocamlc.opt -c -g -o graph.cmi graph.mli # cached
+ocamlc.opt -c -g -o graph.cmi graph.mli # cached
 # Target: gfile.cmi, tags: { byte, compile, debug, extension:mli, file:gfile.mli, interf, ocaml, quiet, traverse }
-/mnt/commetud/GEI/OCaml/.opam/4.08.1/bin/ocamlc.opt -c -g -o gfile.cmi gfile.mli # cached
+ocamlc.opt -c -g -o gfile.cmi gfile.mli # cached
 # Target: Tools.mli.depends, tags: { debug, extension:mli, file:Tools.mli, ocaml, ocamldep, quiet, traverse }
-/mnt/commetud/GEI/OCaml/.opam/4.08.1/bin/ocamldep.opt -modules Tools.mli > Tools.mli.depends # cached
+ocamldep.opt -modules Tools.mli > Tools.mli.depends # cached
 # Target: Tools.cmi, tags: { byte, compile, debug, extension:mli, file:Tools.mli, interf, ocaml, quiet, traverse }
-/mnt/commetud/GEI/OCaml/.opam/4.08.1/bin/ocamlc.opt -c -g -o Tools.cmi Tools.mli # cached
+ocamlc.opt -c -g -o Tools.cmi Tools.mli # cached
 # Target: ftest.cmo, tags: { byte, compile, debug, extension:cmo, extension:ml, file:ftest.cmo, file:ftest.ml, implem, ocaml, quiet, traverse }
-/mnt/commetud/GEI/OCaml/.opam/4.08.1/bin/ocamlc.opt -c -g -o ftest.cmo ftest.ml
-+ /mnt/commetud/GEI/OCaml/.opam/4.08.1/bin/ocamlc.opt -c -g -o ftest.cmo ftest.ml
-File "ftest.ml", line 35, characters 30-36:
-35 |   let () = write_file outfile graph2 in
-                                   ^^^^^^
-Error: This expression has type int Graph.graph
-       but an expression was expected of type string Graph.graph
-       Type int is not compatible with type string 
+ocamlc.opt -c -g -o ftest.cmo ftest.ml # cached
+# Target: gfile.ml.depends, tags: { debug, extension:ml, file:gfile.ml, ocaml, ocamldep, quiet, traverse }
+ocamldep.opt -modules gfile.ml > gfile.ml.depends # cached
+# Target: gfile.cmo, tags: { byte, compile, debug, extension:cmo, extension:ml, file:gfile.cmo, file:gfile.ml, implem, ocaml, quiet, traverse }
+ocamlc.opt -c -g -o gfile.cmo gfile.ml # cached
+# Target: Tools.ml.depends, tags: { debug, extension:ml, file:Tools.ml, ocaml, ocamldep, quiet, traverse }
+ocamldep.opt -modules Tools.ml > Tools.ml.depends
+# Target: Tools.cmo, tags: { byte, compile, debug, extension:cmo, extension:ml, file:Tools.cmo, file:Tools.ml, implem, ocaml, quiet, traverse }
+ocamlc.opt -c -g -o Tools.cmo Tools.ml
++ ocamlc.opt -c -g -o Tools.cmo Tools.ml
+File "Tools.ml", line 1:
+Error: The implementation Tools.ml does not match the interface Tools.cmi:
+       Values do not match:
+         val gmap : 'a Graph.graph -> (Graph.id -> 'a -> 'b list) -> 'b list
+       is not included in
+         val gmap : 'a Graph.graph -> ('a -> 'b) -> 'b Graph.graph
+       File "Tools.mli", line 4, characters 0-43: Expected declaration
+       File "Tools.ml", line 5, characters 4-8: Actual declaration
 Command exited with code 2.
 # Compilation unsuccessful.
