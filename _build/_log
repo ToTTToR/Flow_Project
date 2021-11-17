@@ -2,43 +2,23 @@
 # Target: ftest.ml.depends, tags: { debug, extension:ml, file:ftest.ml, ocaml, ocamldep, quiet, traverse }
 /mnt/commetud/GEI/OCaml/.opam/4.08.1/bin/ocamldep.opt -modules ftest.ml > ftest.ml.depends
 # Target: gfile.mli.depends, tags: { debug, extension:mli, file:gfile.mli, ocaml, ocamldep, quiet, traverse }
-/mnt/commetud/GEI/OCaml/.opam/4.08.1/bin/ocamldep.opt -modules gfile.mli > gfile.mli.depends
+/mnt/commetud/GEI/OCaml/.opam/4.08.1/bin/ocamldep.opt -modules gfile.mli > gfile.mli.depends # cached
 # Target: graph.mli.depends, tags: { debug, extension:mli, file:graph.mli, ocaml, ocamldep, quiet, traverse }
-/mnt/commetud/GEI/OCaml/.opam/4.08.1/bin/ocamldep.opt -modules graph.mli > graph.mli.depends
+/mnt/commetud/GEI/OCaml/.opam/4.08.1/bin/ocamldep.opt -modules graph.mli > graph.mli.depends # cached
 # Target: graph.cmi, tags: { byte, compile, debug, extension:mli, file:graph.mli, interf, ocaml, quiet, traverse }
-/mnt/commetud/GEI/OCaml/.opam/4.08.1/bin/ocamlc.opt -c -g -o graph.cmi graph.mli
-# Target: Tools.mli.depends, tags: { debug, extension:mli, file:Tools.mli, ocaml, ocamldep, quiet, traverse }
-/mnt/commetud/GEI/OCaml/.opam/4.08.1/bin/ocamldep.opt -modules Tools.mli > Tools.mli.depends
+/mnt/commetud/GEI/OCaml/.opam/4.08.1/bin/ocamlc.opt -c -g -o graph.cmi graph.mli # cached
 # Target: gfile.cmi, tags: { byte, compile, debug, extension:mli, file:gfile.mli, interf, ocaml, quiet, traverse }
-/mnt/commetud/GEI/OCaml/.opam/4.08.1/bin/ocamlc.opt -c -g -o gfile.cmi gfile.mli
-# Target: Tools.cmi, tags: { byte, compile, debug, extension:mli, file:Tools.mli, interf, ocaml, quiet, traverse }
-/mnt/commetud/GEI/OCaml/.opam/4.08.1/bin/ocamlc.opt -c -g -o Tools.cmi Tools.mli
+/mnt/commetud/GEI/OCaml/.opam/4.08.1/bin/ocamlc.opt -c -g -o gfile.cmi gfile.mli # cached
 # Target: ftest.cmo, tags: { byte, compile, debug, extension:cmo, extension:ml, file:ftest.cmo, file:ftest.ml, implem, ocaml, quiet, traverse }
 /mnt/commetud/GEI/OCaml/.opam/4.08.1/bin/ocamlc.opt -c -g -o ftest.cmo ftest.ml
-+ /mnt/commetud/GEI/OCaml/.opam/4.08.1/bin/ocamlc.opt -c -g -o ftest.cmo ftest.ml
-File "ftest.ml", line 32, characters 6-12:
-32 |   let graph1 = (clone_nodes graph) in
-           ^^^^^^
-Warning 26: unused variable graph1.
 # Target: gfile.ml.depends, tags: { debug, extension:ml, file:gfile.ml, ocaml, ocamldep, quiet, traverse }
-/mnt/commetud/GEI/OCaml/.opam/4.08.1/bin/ocamldep.opt -modules gfile.ml > gfile.ml.depends
-# Target: Tools.ml.depends, tags: { debug, extension:ml, file:Tools.ml, ocaml, ocamldep, quiet, traverse }
-/mnt/commetud/GEI/OCaml/.opam/4.08.1/bin/ocamldep.opt -modules Tools.ml > Tools.ml.depends
+/mnt/commetud/GEI/OCaml/.opam/4.08.1/bin/ocamldep.opt -modules gfile.ml > gfile.ml.depends # cached
 # Target: gfile.cmo, tags: { byte, compile, debug, extension:cmo, extension:ml, file:gfile.cmo, file:gfile.ml, implem, ocaml, quiet, traverse }
-/mnt/commetud/GEI/OCaml/.opam/4.08.1/bin/ocamlc.opt -c -g -o gfile.cmo gfile.ml
-# Target: Tools.cmo, tags: { byte, compile, debug, extension:cmo, extension:ml, file:Tools.cmo, file:Tools.ml, implem, ocaml, quiet, traverse }
-/mnt/commetud/GEI/OCaml/.opam/4.08.1/bin/ocamlc.opt -c -g -o Tools.cmo Tools.ml
-+ /mnt/commetud/GEI/OCaml/.opam/4.08.1/bin/ocamlc.opt -c -g -o Tools.cmo Tools.ml
-File "Tools.ml", line 1:
-Error: The implementation Tools.ml does not match the interface Tools.cmi:
-       Values do not match:
-         val gmap :
-           'a Graph.graph ->
-           ('b Graph.graph -> Graph.id -> Graph.id -> 'a -> 'b Graph.graph) ->
-           'b Graph.graph
-       is not included in
-         val gmap : 'a Graph.graph -> ('a -> 'b) -> 'b Graph.graph
-       File "Tools.mli", line 4, characters 0-43: Expected declaration
-       File "Tools.ml", line 5, characters 4-8: Actual declaration
-Command exited with code 2.
-# Compilation unsuccessful.
+/mnt/commetud/GEI/OCaml/.opam/4.08.1/bin/ocamlc.opt -c -g -o gfile.cmo gfile.ml # cached
+# Target: graph.ml.depends, tags: { debug, extension:ml, file:graph.ml, ocaml, ocamldep, quiet, traverse }
+/mnt/commetud/GEI/OCaml/.opam/4.08.1/bin/ocamldep.opt -modules graph.ml > graph.ml.depends
+# Target: graph.cmo, tags: { byte, compile, debug, extension:cmo, extension:ml, file:graph.cmo, file:graph.ml, implem, ocaml, quiet, traverse }
+/mnt/commetud/GEI/OCaml/.opam/4.08.1/bin/ocamlc.opt -c -g -o graph.cmo graph.ml
+# Target: ftest.byte, tags: { byte, debug, dont_link_with, extension:byte, file:ftest.byte, link, ocaml, program, quiet, traverse }
+/mnt/commetud/GEI/OCaml/.opam/4.08.1/bin/ocamlc.opt -g graph.cmo gfile.cmo ftest.cmo -o ftest.byte
+# Compilation successful.
