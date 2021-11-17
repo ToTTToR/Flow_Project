@@ -1,10 +1,10 @@
-buildbyte : remove
+buildbyte : 
 	ocamlbuild ftest.byte
 
-buildnat : remove
+buildnat : 
 	ocamlbuild ftest.native
 
-remove :
+clean :
 	rm -f *.cmi *.cmo ftest ftest.native ftest.byte
 
 build : remove helper
