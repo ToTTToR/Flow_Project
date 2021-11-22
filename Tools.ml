@@ -1,4 +1,5 @@
 open Graph
+open Printf
 
 let clone_nodes gr = n_fold gr new_node empty_graph
  
@@ -33,15 +34,32 @@ let graphe_ecart gr path =
   let min_flow = find_min_flow gr 9999 path in 
   let rec helper gr = function
     | [] -> gr
-    | [_] -> gr
-    | id1::id2::rest -> let gr1=(add_arc gr id1 id2 (-min_flow)) in
+    | [_] -> printf "Je suis appelé 2\n";gr
+    | id1::id2::rest -> printf "Je suis appelé 1\n";let gr1=(add_arc gr id1 id2 (-min_flow)) in
     let gr2=(add_arc gr1 id2 id1 min_flow) in helper gr2 (id2::rest)
   in
   helper gr path 
 
-(*let ford_fulkerson gr id1 id2=
+let print_path path = List.iter (printf "%d ") path;printf("\n")
+
+let make_real_path = function
+  | None -> []
+  | Some x -> x
+
+let test_1 gr id1 id2 =
+  let gr1=gmap gr int_of_string in
+  let pat1=make_real_path (find_path gr1 [] id1 id2) in
+  let gr2=graphe_ecart gr1 pat1 in
+  let pat2=make_real_path (find_path gr2 [] id1 id2) in
+  let gr3=gmap (graphe_ecart gr2 pat2) string_of_int in
+  print_path pat1;
+  print_path pat2;
+  gr3
+
+let ford_fulkerson gr id1 id2=
   let gr1=gmap gr int_of_string in (*Initialisation*)
-  try
-    let first_path gr id1 id2=find_path gr [] id1 id2 in
-    
-  with e -> failwith "Pas de chemin trouvé entre ces deux points, veuillez choisir des autres noeuds"*)
+  let rec helper gra = (*Tant qu'on trouve un chemin, on fait le graphe d'écart associé*)
+    match (find_path gra [] id1 id2) with 
+      | None -> gra
+      | Some pat -> (print_path pat);helper (graphe_ecart gra pat)
+  in gmap (helper gr1) string_of_int

@@ -30,14 +30,16 @@ let () =
   (* Open file *)
   let graph = from_file infile in
   let graph1 = gmap graph int_of_string in
-  let path = match (find_path graph1 [] 0 5) with
-  | None -> []
-  | Some x -> x
+  let first_path=match (find_path graph1 [] 0 5) with
+    | None -> failwith "Pas de chemin"
+    | Some x -> x
   in
+  let graph2 = graphe_ecart graph1 first_path in
+  let graph3 = gmap graph2 string_of_int in
+  let graph4=ford_fulkerson graph 0 5 in
   (* Rewrite the graph that has been read. *)
-  let () = List.iter (printf "%d") path in (*write_file outfile graph3*)
+  let () = write_file outfile graph4 in 
   printf "\n";
-  printf "%d\n" (find_min_flow graph1 9999 path);
 
     ()
 
