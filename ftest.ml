@@ -30,12 +30,14 @@ let () =
   (* Open file *)
   let graph = from_file infile in
   let graph1 = gmap graph int_of_string in
-  let path = match (find_path graph1 [] 4 3) with
+  let path = match (find_path graph1 [] 0 5) with
   | None -> []
   | Some x -> x
   in
   (* Rewrite the graph that has been read. *)
   let () = List.iter (printf "%d") path in (*write_file outfile graph3*)
+  printf "\n";
+  printf "%d\n" (find_min_flow graph1 9999 path);
 
     ()
 
