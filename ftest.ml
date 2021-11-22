@@ -1,5 +1,6 @@
 open Gfile
 open Tools
+open Printf
 
 let () =
 
@@ -29,10 +30,12 @@ let () =
   (* Open file *)
   let graph = from_file infile in
   let graph1 = gmap graph int_of_string in
-  let graph2 = add_arc graph1 0 2 4 in
-  let graph3 = gmap graph2 string_of_int in
+  let path = match (find_path graph1 [] 4 3) with
+  | None -> []
+  | Some x -> x
+  in
   (* Rewrite the graph that has been read. *)
-  let () = write_file outfile graph3 in
+  let () = List.iter (printf "%d") path in (*write_file outfile graph3*)
 
     ()
 
