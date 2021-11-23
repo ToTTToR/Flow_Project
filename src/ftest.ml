@@ -34,5 +34,5 @@ let () =
   let () = write_file outfile graph4 in 
   printf "\n";
 
-    ()
+  ()
 
