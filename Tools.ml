@@ -17,7 +17,7 @@ let find_path gr forbidden id1 id2 =
   (*If node has no child, or if all child has already been visited, not a valid path to make*)
     | [] -> failwith "No valid path" 
   (*Check if next node has already been visited, or if out_arc to it is null.*)
-    | (id,len)::rest -> if (List.exists (fun x -> x=id) forbid) || len=0 then create_path forbid rest 
+    | (id,len)::rest -> if List.mem id forbid || len=0 then create_path forbid rest 
     else if id=id2 then [id] (*Destination found!*)
     else try 
       id::(create_path (id::forbid) (out_arcs gr id))
@@ -37,7 +37,7 @@ let rec find_min_flow gr m = function
 
 (*Make "graphe d'ecart" after given path has been found*)
 let graphe_ecart gr path =
-  let min_flow = find_min_flow gr 9999 path in (*Should initially compare to infinity*)
+  let min_flow = find_min_flow gr Int.max_int path in (*Should initially compare to infinity*)
   let rec helper gr = function
     | [] -> gr
     | [_] -> gr
