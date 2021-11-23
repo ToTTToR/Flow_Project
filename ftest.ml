@@ -1,5 +1,6 @@
 open Gfile
-open Tools
+open Printf
+open Flow_Algo
 
 let () =
 
@@ -28,11 +29,10 @@ let () =
 
   (* Open file *)
   let graph = from_file infile in
-  let graph1 = gmap graph int_of_string in
-  let graph2 = add_arc graph1 0 2 4 in
-  let graph3 = gmap graph2 string_of_int in
+  let graph4=ford_fulkerson graph _source _sink in
   (* Rewrite the graph that has been read. *)
-  let () = write_file outfile graph3 in
+  let () = write_file outfile graph4 in 
+  printf "\n";
 
     ()
 
