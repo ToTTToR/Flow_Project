@@ -31,7 +31,7 @@ let () =
   let graph = from_file infile in
   let graph4=ford_fulkerson graph _source _sink in
   (* Rewrite the graph that has been read. *)
-  let () = write_file outfile graph4 in 
+  let () = export outfile graph4 in 
   printf "\n";
 
   ()
