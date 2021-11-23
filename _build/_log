@@ -1,2 +1,32 @@
 ### Starting build.
-# Compilation unsuccessful.
+# Target: ftest.ml.depends, tags: { extension:ml, file:ftest.ml, ocaml, ocamldep, quiet }
+/mnt/commetud/GEI/OCaml/.opam/4.08.1/bin/ocamldep.opt -modules ftest.ml > ftest.ml.depends # cached
+# Target: gfile.mli.depends, tags: { extension:mli, file:gfile.mli, ocaml, ocamldep, quiet }
+/mnt/commetud/GEI/OCaml/.opam/4.08.1/bin/ocamldep.opt -modules gfile.mli > gfile.mli.depends
+# Target: graph.mli.depends, tags: { extension:mli, file:graph.mli, ocaml, ocamldep, quiet }
+/mnt/commetud/GEI/OCaml/.opam/4.08.1/bin/ocamldep.opt -modules graph.mli > graph.mli.depends # cached
+# Target: graph.cmi, tags: { byte, compile, extension:mli, file:graph.mli, interf, ocaml, quiet }
+/mnt/commetud/GEI/OCaml/.opam/4.08.1/bin/ocamlc.opt -c -o graph.cmi graph.mli # cached
+# Target: Tools.mli.depends, tags: { extension:mli, file:Tools.mli, ocaml, ocamldep, quiet }
+/mnt/commetud/GEI/OCaml/.opam/4.08.1/bin/ocamldep.opt -modules Tools.mli > Tools.mli.depends # cached
+# Target: Tools.cmi, tags: { byte, compile, extension:mli, file:Tools.mli, interf, ocaml, quiet }
+/mnt/commetud/GEI/OCaml/.opam/4.08.1/bin/ocamlc.opt -c -o Tools.cmi Tools.mli # cached
+# Target: gfile.cmi, tags: { byte, compile, extension:mli, file:gfile.mli, interf, ocaml, quiet }
+/mnt/commetud/GEI/OCaml/.opam/4.08.1/bin/ocamlc.opt -c -o gfile.cmi gfile.mli
+# Target: ftest.cmo, tags: { byte, compile, extension:cmo, extension:ml, file:ftest.cmo, file:ftest.ml, implem, ocaml, quiet }
+/mnt/commetud/GEI/OCaml/.opam/4.08.1/bin/ocamlc.opt -c -o ftest.cmo ftest.ml
+# Target: gfile.ml.depends, tags: { extension:ml, file:gfile.ml, ocaml, ocamldep, quiet }
+/mnt/commetud/GEI/OCaml/.opam/4.08.1/bin/ocamldep.opt -modules gfile.ml > gfile.ml.depends # cached
+# Target: Tools.ml.depends, tags: { extension:ml, file:Tools.ml, ocaml, ocamldep, quiet }
+/mnt/commetud/GEI/OCaml/.opam/4.08.1/bin/ocamldep.opt -modules Tools.ml > Tools.ml.depends # cached
+# Target: Tools.cmo, tags: { byte, compile, extension:cmo, extension:ml, file:Tools.cmo, file:Tools.ml, implem, ocaml, quiet }
+/mnt/commetud/GEI/OCaml/.opam/4.08.1/bin/ocamlc.opt -c -o Tools.cmo Tools.ml # cached
+# Target: gfile.cmo, tags: { byte, compile, extension:cmo, extension:ml, file:gfile.cmo, file:gfile.ml, implem, ocaml, quiet }
+/mnt/commetud/GEI/OCaml/.opam/4.08.1/bin/ocamlc.opt -c -o gfile.cmo gfile.ml
+# Target: graph.ml.depends, tags: { extension:ml, file:graph.ml, ocaml, ocamldep, quiet }
+/mnt/commetud/GEI/OCaml/.opam/4.08.1/bin/ocamldep.opt -modules graph.ml > graph.ml.depends # cached
+# Target: graph.cmo, tags: { byte, compile, extension:cmo, extension:ml, file:graph.cmo, file:graph.ml, implem, ocaml, quiet }
+/mnt/commetud/GEI/OCaml/.opam/4.08.1/bin/ocamlc.opt -c -o graph.cmo graph.ml # cached
+# Target: ftest.byte, tags: { byte, dont_link_with, extension:byte, file:ftest.byte, link, ocaml, program, quiet }
+/mnt/commetud/GEI/OCaml/.opam/4.08.1/bin/ocamlc.opt graph.cmo Tools.cmo gfile.cmo ftest.cmo -o ftest.byte
+# Compilation successful.
