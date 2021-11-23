@@ -64,6 +64,13 @@ let make_real_path = function
   print_path pat2;
   gr3*)
 
+let pretty_print_graph gr gr_ecart =
+  e_fold gr (fun ngr id1 id2 cap -> 
+  match find_arc gr_ecart id2 id1 with
+    | None -> new_arc ngr id1 id2 ("0/"^cap)
+    | Some x -> new_arc ngr id1 id2 (x^"/"^cap)
+  ) (clone_nodes gr)
+
 let ford_fulkerson gr id1 id2=
   let gr1=gmap gr int_of_string in
   let rec helper gra = (*Tant qu'on trouve un chemin, on fait le graphe d'écart associé*)
@@ -71,4 +78,5 @@ let ford_fulkerson gr id1 id2=
       | None -> gra (*Si pas de chemin trouvé, renvoie notre dernier graphe d'écart*)
       | Some pat -> (print_path pat);helper (graphe_ecart gra pat)
   in 
-  gmap (helper gr1) string_of_int
+  let gr2=gmap (helper gr1) string_of_int in
+  pretty_print_graph gr gr2
