@@ -11,3 +11,5 @@ edit:
 clean :
 	-rm -rf _build/
 	-rm ftest.native
+run : clean buildnat
+	./ftest.native $(in) $(s) $(p) pretty_graph
