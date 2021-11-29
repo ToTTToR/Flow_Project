@@ -1,6 +1,7 @@
 open Gfile
 open Printf
 open Flow_Algo
+open Dijkstra
 
 let () =
 
@@ -19,6 +20,9 @@ let () =
 
   (* Arguments are : infile(1) source-id(2) sink-id(3) outfile(4) *)
 
+  let labels = [("id1",0,false,"");("id2",0,false,"");("id3",0,false,"")] in 
+    
+
   let infile = Sys.argv.(1)
   and outfile = Sys.argv.(4)
 
@@ -32,6 +36,9 @@ let () =
   let graph4=ford_fulkerson graph _source _sink in
   (* Rewrite the graph that has been read. *)
   let () = export outfile graph4 in 
+  match dijkstra graph _source _sink with
+  | None -> printf("Pas de chemin trouvé\n")
+  | Some x -> print_path x;
   printf "\n";
 
   ()
