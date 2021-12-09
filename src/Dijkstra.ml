@@ -48,18 +48,18 @@ let dijkstra gr id1 id2 =
     
     let rec loop_succ heap label_l label_pred= function
     | [] -> (heap,label_l)
-    | (id1,len)::rest ->
-    let label_succ=(find_label label_l id1) in 
-    let (id_succ,cost_succ,marked_succ,father_succ)=label_succ 
-    and (id_pred,cost_pred,marked_pred,father_pred)=label_pred in
-    
-    if marked_succ then loop_succ heap label_l label_pred rest else 
-    if cost_succ > (cost_pred+len) then 
-      let new_label_succ=(id_succ,(cost_pred+len),marked_succ,id_pred) in printf "Successeur : %d\n" id_succ; 
-      let next_heap=Heap.add new_label_succ (Heap.remove label_succ heap)
-      and next_list=replace label_l id_succ new_label_succ in
-      loop_succ next_heap next_list label_pred rest
-    else loop_succ heap label_l label_pred rest
+    | (id1,len)::rest -> if len=0 then loop_succ heap label_l label_pred rest else
+      let label_succ=(find_label label_l id1) in 
+      let (id_succ,cost_succ,marked_succ,father_succ)=label_succ 
+      and (id_pred,cost_pred,marked_pred,father_pred)=label_pred in
+      
+      if marked_succ then loop_succ heap label_l label_pred rest else 
+      if cost_succ > (cost_pred+len) then 
+        let new_label_succ=(id_succ,(cost_pred+len),marked_succ,id_pred) in printf "Successeur : %d\n" id_succ; 
+        let next_heap=Heap.add new_label_succ (Heap.remove label_succ heap)
+        and next_list=replace label_l id_succ new_label_succ in
+        loop_succ next_heap next_list label_pred rest
+      else loop_succ heap label_l label_pred rest
     in
     print_heap tas;
     let (tas_bis,label_list_bis)=loop_succ next_tas next_label_list elt (out_arcs gr1 id) in

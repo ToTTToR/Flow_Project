@@ -13,3 +13,4 @@ clean :
 	-rm ftest.native
 run : clean buildnat
 	./ftest.native $(in) $(s) $(p) pretty_graph
+	python3 Showgraph.py

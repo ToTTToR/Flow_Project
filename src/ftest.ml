@@ -2,6 +2,7 @@ open Gfile
 open Printf
 open Flow_Algo
 open Dijkstra
+open BellmannFord
 
 let () =
 
@@ -32,14 +33,10 @@ let () =
   in
 
   (* Open file *)
-  let graph = from_file infile in
-  let graph4=ford_fulkerson graph _source _sink in
-  (* Rewrite the graph that has been read. *)
-  let () = export outfile graph4 in 
-  match dijkstra graph _source _sink with
-  | None -> printf("Pas de chemin trouvé\n")
-  | Some x -> print_path x;
-  printf "\n";
+  let graph = busacker_gowen (from_file_bis infile) _source _sink in
+  (*let graph4=ford_fulkerson graph _source _sink in
+   Rewrite the graph that has been read. *)
+  let () = export outfile graph in 
 
   ()
 
