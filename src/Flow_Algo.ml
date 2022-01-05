@@ -1,6 +1,8 @@
 open Graph
 open Printf
 open Tools
+open Dijkstra
+open BellmannFord
 
 type path = id list
 
@@ -30,6 +32,7 @@ let rec find_min_flow gr m = function
 
 (*Make "graphe d'ecart" after given path has been found*)
 let graphe_ecart gr path =
+  printf "Creation graphe d'ecart de flot\n\n%!";
   let min_flow = find_min_flow gr Int.max_int path in (*Should initially compare to infinity*)
   let rec helper gr = function
     | [] -> gr
@@ -43,6 +46,7 @@ let graphe_ecart gr path =
 
 let print_path path = (printf "Chemin associé : ");List.iter (printf "%d ") path;printf("\n")
 
+(*Takes away the option of a path*)
 let make_real_path = function
   | None -> []
   | Some x -> x
@@ -55,6 +59,20 @@ let pretty_print_graph gr gr_ecart =
       | Some x -> new_arc ngr id1 id2 (x^"/"^cap)
     ) (clone_nodes gr)
 
+let string_cost_arc gr_cost id1 id2=
+  match find_arc gr_cost id1 id2 with
+  | None -> ""
+  | Some x -> string_of_int x
+
+(*Show graph with flow/capacity as label + cost*)
+let pretty_print_graph_bis gr gr_ecart gr_cost=
+  e_fold gr (fun ngr id1 id2 cap -> 
+      let cost_arc = string_cost_arc gr_cost id1 id2 in
+      match find_arc gr_ecart id2 id1 with
+      | None -> new_arc ngr id1 id2 ("0/"^cap^" ("^cost_arc^")")
+      | Some x -> new_arc ngr id1 id2 (x^"/"^cap^" ("^cost_arc^")")
+    ) (clone_nodes gr)
+
 (*Solve flow max problem of graph*)
 let ford_fulkerson gr id1 id2=
   let gr1=gmap gr int_of_string in
@@ -65,3 +83,37 @@ let ford_fulkerson gr id1 id2=
   in 
   let gr2=gmap (helper gr1) string_of_int in
   pretty_print_graph gr gr2
+
+(*Make gap graph of cost from gap flow graph and initial graph*)
+let make_graph_cost_ecart base_graph graph_flow_ecart graph_cost =
+  e_fold base_graph (fun new_g id1 id2 cost -> 
+    let cost_arc = match find_arc graph_cost id1 id2 with
+      | None -> 0
+      | Some x -> x in
+    match find_arc graph_flow_ecart id1 id2 with
+    | None -> new_g
+    | Some y -> if y==0 then new_arc new_g id2 id1 (-cost_arc)  else
+     match find_arc graph_flow_ecart id2 id1 with
+      | None -> new_arc new_g id1 id2 cost_arc
+      | _ -> new_arc (new_arc new_g id2 id1 (-cost_arc)) id1 id2 cost_arc
+  ) (clone_nodes base_graph)
+
+(*Print all the arcs of a graph*)
+let print_graph gr = e_iter gr (fun id1 id2 cost -> printf "Arc de %d à %d de cout %d\n%!" id1 id2 cost)
+
+(*Solve the flow max/min cost problem, from an initial graph with flow and cost*)
+let busacker_gowen (graph_flow_s,graph_cost_s) id1 id2=
+  let graph_flow=gmap graph_flow_s int_of_string in
+  let graph_cost=gmap graph_cost_s int_of_string in
+  let rec helper gr_fl_ecart gr_cost_ecart =
+    match bellmanford gr_cost_ecart id1 id2 with
+    | None -> printf "Plus de chemin trouvé\n%!";print_graph gr_fl_ecart; gr_fl_ecart
+    | Some path -> print_path path;
+    let next_gr_fl_ecart=graphe_ecart gr_fl_ecart path in
+    printf "Prochain graphe d'écart de flot : \n%!";print_graph next_gr_fl_ecart;
+    let next_gr_cost_ecart=make_graph_cost_ecart graph_flow next_gr_fl_ecart graph_cost in
+    printf "Prochain graphe d'écart de cout : \n%!";print_graph next_gr_cost_ecart;
+    helper next_gr_fl_ecart next_gr_cost_ecart
+  in
+  let gr2=gmap (helper graph_flow graph_cost) string_of_int in
+  pretty_print_graph_bis graph_flow_s gr2 graph_cost

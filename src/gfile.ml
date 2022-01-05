@@ -71,6 +71,13 @@ let read_arc graph line =
     Printf.printf "Cannot read arc in line - %s:\n%s\n%!" (Printexc.to_string e) line ;
     failwith "from_file"
 
+let read_arc_bis (graph_flow,graph_cost) line =
+  try Scanf.sscanf line "e %d %d %_d %s %s@%%"
+        (fun id1 id2 label_flow label_cost -> (new_arc (ensure (ensure graph_flow id1) id2) id1 id2 label_flow),(new_arc (ensure (ensure graph_cost id1) id2) id1 id2 label_cost))
+  with e ->
+    Printf.printf "Cannot read arc in line - %s:\n%s\n%!" (Printexc.to_string e) line ;
+    failwith "from_file"    
+
 (* Reads a comment or fail. *)
 let read_comment graph line =
   try Scanf.sscanf line " %%" graph
@@ -112,13 +119,48 @@ let from_file path =
   close_in infile ;
   final_graph
 
+let from_file_bis path =
+
+  let infile = open_in path in
+  
+  (* Read all lines until end of file. *)
+  let rec loop (graph_flow,graph_cost) =
+    try
+      let line = input_line infile in
+  
+      (* Remove leading and trailing spaces. *)
+      let line = String.trim line in
+  
+      let (graph_flow2,graph_cost2) =
+        (* Ignore empty lines *)
+        if line = "" then (graph_flow,graph_cost)
+  
+        (* The first character of a line determines its content : n or e. *)
+        else match line.[0] with
+          | 'n' -> (read_node graph_flow line),(read_node graph_cost line)
+          | 'e' -> read_arc_bis (graph_flow,graph_cost) line
+  
+          (* It should be a comment, otherwise we complain. *)
+          | _ -> (read_comment graph_flow line),(read_comment graph_cost line)
+      in      
+      loop (graph_flow2,graph_cost2)
+  
+    with End_of_file -> (graph_flow,graph_cost) (* Done *)
+  in
+  
+  let final_graph = loop (empty_graph,empty_graph) in
+  
+  close_in infile ;
+  final_graph
+
 let export path gr =
   let infile = open_out path in
 
   fprintf infile "digraph Test_Graph{\n";
+  fprintf infile "graph [pad=\"0.5\", nodesep=\"0.5\", ranksep=\"2\"];\n";
   fprintf infile "rankdir=LR\n";
   fprintf infile "node[shape = circle]\n";
-  let _ = e_iter gr (fun id1 id2 lbl -> fprintf infile "%d -> %d [label = \"%s\"]\n" id1 id2 lbl) in
+  e_iter gr (fun id1 id2 lbl -> fprintf infile "%d -> %d [label = \"%s\"]\n" id1 id2 lbl);
   fprintf infile "}\n";
   close_out infile ;
   ()
