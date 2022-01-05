@@ -19,6 +19,9 @@ let () =
 
   (* Arguments are : infile(1) source-id(2) sink-id(3) outfile(4) *)
 
+  let labels = [("id1",0,false,"");("id2",0,false,"");("id3",0,false,"")] in 
+    
+
   let infile = Sys.argv.(1)
   and outfile = Sys.argv.(4)
 
