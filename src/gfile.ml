@@ -1,22 +1,30 @@
 open Graph
 open Printf
 
+type personne =
+  {
+    id : int;
+    name : string;
+    metierVoulueId : int list;
+  }
+
+type metier =
+  {
+    id : int;
+    name : string;
+  }
+
+type matchPersonneWithMetier =
+  {
+    personnes : personne list; 
+    metiers : metier list;
+  }
+let initList = {personnes=[];metiers=[]} 
+
+
+
 type path = string
 
-(* Format of text files:
-   % This is a comment
-
-   % A node with its coordinates (which are not used), and its id.
-   n 88.8 209.7 0
-   n 408.9 183.0 1
-
-   % Edges: e source dest label id  (the edge id is not used).
-   e 3 1 11 0 
-   e 0 2 8 1
-
-*)
-
-(* Compute arbitrary position for a node. Center is 300,300 *)
 let iof = int_of_float
 let foi = float_of_int
 
@@ -71,6 +79,13 @@ let read_arc graph line =
     Printf.printf "Cannot read arc in line - %s:\n%s\n%!" (Printexc.to_string e) line ;
     failwith "from_file"
 
+let read_arc_bis (graph_flow,graph_cost) line =
+  try Scanf.sscanf line "e %d %d %_d %s %s@%%"
+        (fun id1 id2 label_flow label_cost -> (new_arc (ensure (ensure graph_flow id1) id2) id1 id2 label_flow),(new_arc (ensure (ensure graph_cost id1) id2) id1 id2 label_cost))
+  with e ->
+    Printf.printf "Cannot read arc in line - %s:\n%s\n%!" (Printexc.to_string e) line ;
+    failwith "from_file"    
+
 (* Reads a comment or fail. *)
 let read_comment graph line =
   try Scanf.sscanf line " %%" graph
@@ -112,13 +127,164 @@ let from_file path =
   close_in infile ;
   final_graph
 
-let export path gr =
-  let infile = open_out path in
 
-  fprintf infile "digraph Test_Graph{\n";
-  fprintf infile "rankdir=LR\n";
-  fprintf infile "node[shape = circle]\n";
-  let _ = e_iter gr (fun id1 id2 lbl -> fprintf infile "%d -> %d [label = \"%s\"]\n" id1 id2 lbl) in
-  fprintf infile "}\n";
-  close_out infile ;
-  ()
+(* mise en place du biparti *)
+
+
+let rec getIdMetiers metiersList acu = 
+  let metiersList = String.trim metiersList in
+  Printf.printf "%s\n" metiersList;
+  if metiersList = "" then acu
+  else Scanf.sscanf metiersList "%d %s@." (fun id rest -> getIdMetiers rest ((-id)::acu))
+
+
+let read_personne index list line =
+  try Scanf.sscanf line "p %s@:%s@." (fun personne metiers-> 
+      {
+        personnes =
+          {
+            id = index;
+            name = personne;
+            metierVoulueId = getIdMetiers metiers [] 
+          }::list.personnes;
+
+        metiers = list.metiers
+      } )
+  with e ->
+    Printf.printf "Cannot read metier in line - %s:\n%s\n%!" (Printexc.to_string e) line ;
+    failwith "from_file"
+
+
+let read_metier index list line = 
+  try Scanf.sscanf line "m %d %s" (fun metierId metier ->
+      {
+        personnes = list.personnes;
+
+        metiers = 
+          {
+            (* on met en négatif pour pas rentrer en conflits avec les personnes *)
+            id = (-metierId);
+            name = metier
+          }::list.metiers
+
+      } )
+  with e ->
+    Printf.printf "Cannot read metier in line - %s:\n%s\n%!" (Printexc.to_string e) line ;
+    failwith "from_file"
+
+let createNodePersonne (personne: personne) graph = 
+  let graph = new_node graph personne.id in
+  let graph = new_arc graph min_int personne.id 1 in 
+  graph
+
+let createNodeMetier (metier : metier) graph =
+  let graph = new_node graph metier.id in
+  let graph = new_arc graph metier.id max_int 1 in 
+  graph
+
+let rec createArcBeetweenPersonneAndMetiers personneId metierslist graph =
+  match metierslist with 
+  | [] -> graph
+  | metierId :: reste -> let graph = new_arc graph personneId metierId 1 in 
+    let graph = createArcBeetweenPersonneAndMetiers personneId reste graph in 
+    graph  
+
+
+let rec createArcAndNodesForPersonnes personnes graph = 
+  match personnes with
+  |[] -> graph
+  |personne :: reste -> let graph = createNodePersonne personne graph in 
+    let graph = createArcBeetweenPersonneAndMetiers personne.id personne.metierVoulueId graph in 
+    let graph = createArcAndNodesForPersonnes reste graph in 
+    graph     
+
+
+let rec createArcAndNodesForMetier metiers graph =
+  match metiers with
+  | [] -> graph 
+  | metier :: reste -> let graph = createNodeMetier metier graph in 
+    let graph = createArcAndNodesForMetier reste graph in 
+    graph
+
+let createGraphFromPersonneAndMetier matchPersonneWithMetier = 
+  let graph = empty_graph in 
+  let graph = new_node graph max_int in
+  let graph = new_node graph min_int in
+  let graph = createArcAndNodesForMetier matchPersonneWithMetier.metiers graph in 
+  let graph = createArcAndNodesForPersonnes matchPersonneWithMetier.personnes graph in 
+  graph
+
+let from_file_bis path =
+
+
+  let infile = open_in path in
+
+  (* Read all lines until end of file. *)
+  let rec loop (n, matchPersonneWithMetier) =
+    try
+      let line = input_line infile in
+
+      (* Remove leading and trailing spaces. *)
+      let line = String.trim line in
+
+      let (n1, matchPersonneWithMetier1)  =
+        (* Ignore empty lines *)
+        if line = "" then (n, matchPersonneWithMetier)
+        else match line.[0] with
+          | 'm' -> (n,read_metier n matchPersonneWithMetier line)
+          | 'p' -> (n+1,read_personne n matchPersonneWithMetier line)
+          | _-> (n, read_comment matchPersonneWithMetier line)
+      in      
+      loop (n1, matchPersonneWithMetier1)
+
+    with End_of_file -> matchPersonneWithMetier (* Done *)
+  in
+
+  let final_matchPersonneWithMetier = loop (0,initList) in
+
+  close_in infile ;
+  final_matchPersonneWithMetier
+
+let generateGraph matchPersonneWithMetier =
+    let graph = createGraphFromPersonneAndMetier matchPersonneWithMetier in 
+    graph
+
+let rec getPersonnebyID id (personnesList : personne list) =
+    match personnesList with
+    | [] -> "NotFound"
+    | personne :: rest -> if personne.id == id then personne.name else getPersonnebyID id rest
+
+let rec getMetierbyID id (metiersList : metier list) =
+    match metiersList with
+    | [] -> "NotFound"
+    | metiers :: rest -> if metiers.id == id then metiers.name else getMetierbyID id rest
+ 
+let getId id matchPersonneWithMetier =
+    let name = getPersonnebyID id matchPersonneWithMetier.personnes in 
+    if name = "NotFound" then 
+    (
+      let name = getMetierbyID id matchPersonneWithMetier.metiers in 
+      if name = "NotFound" then (if id = Int.max_int then "Puit" else if id = Int.min_int then "Source" else "NotFound") else name
+    )else name
+
+let export_bis path gr matchPersonneWithMetier=
+    let infile = open_out path in
+
+    fprintf infile "digraph Test_Graph{\n";
+    fprintf infile "rankdir=LR\n";
+    fprintf infile "node[shape = circle]\n";
+    e_iter gr (fun id1 id2 lbl -> fprintf infile "%s -> %s [label = \"%s\"]\n" (getId id1 matchPersonneWithMetier)(getId id2 matchPersonneWithMetier) lbl);
+    fprintf infile "}\n";
+    close_out infile ;
+    ()
+
+let export path gr =
+    let infile = open_out path in
+
+    fprintf infile "digraph Test_Graph{\n";
+    fprintf infile "rankdir=LR\n";
+    fprintf infile "node[shape = circle]\n";
+    e_iter gr (fun id1 id2 lbl -> fprintf infile "%d -> %d [label = \"%s\"]\n" id1 id2 lbl);
+    fprintf infile "}\n";
+    close_out infile ;
+    ()

@@ -1,7 +1,7 @@
 open Gfile
 open Printf
 open Flow_Algo
-
+open Tools
 let () =
 
   (* Check the number of command-line arguments *)
@@ -23,15 +23,17 @@ let () =
   and outfile = Sys.argv.(4)
 
   (* These command-line arguments are not used for the moment. *)
-  and _source = int_of_string Sys.argv.(2)
-  and _sink = int_of_string Sys.argv.(3)
+  and _source = Int.min_int
+  and _sink = Int.max_int
   in
 
   (* Open file *)
-  let graph = from_file infile in
-  let graph4=ford_fulkerson graph _source _sink in
+  let fromFile = from_file_bis infile in
+  let graph = generateGraph fromFile in
+  let graph = gmap graph string_of_int in
+  let graph4= ford_fulkerson graph _source _sink in
   (* Rewrite the graph that has been read. *)
-  let () = export outfile graph4 in 
+  let () = export_bis outfile graph4 fromFile in 
   printf "\n";
 
   ()
