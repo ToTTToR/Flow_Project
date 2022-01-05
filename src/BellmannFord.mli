@@ -4,8 +4,6 @@ open Printf
 
 type label = (id * int  * id)
 
-val file : int Queue.t
-
 val print_list_label: label list -> unit
 val replace : label list -> id -> label -> label list
 val find_label : label list -> id -> label

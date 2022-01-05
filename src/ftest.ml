@@ -20,8 +20,6 @@ let () =
 
 
   (* Arguments are : infile(1) source-id(2) sink-id(3) outfile(4) *)
-
-  let labels = [("id1",0,false,"");("id2",0,false,"");("id3",0,false,"")] in 
     
 
   let infile = Sys.argv.(1)
@@ -31,12 +29,18 @@ let () =
   and _source = int_of_string Sys.argv.(2)
   and _sink = int_of_string Sys.argv.(3)
   in
-
+  export "init" (from_file infile); 
   (* Open file *)
-  let graph = busacker_gowen (from_file_bis infile) _source _sink in
-  (*let graph4=ford_fulkerson graph _source _sink in
-   Rewrite the graph that has been read. *)
-  let () = export outfile graph in 
+  if infile = "graphs/graph3" || infile="graphs/graph4" then
+    let graph = busacker_gowen (from_file_bis infile) _source _sink in
+    export outfile graph;
+    (*let (graph_flow,_) = (from_file_bis infile) in
+    let graph2 = ford_fulkerson graph_flow _source _sink in
+    export "init" graph2*)
+  else 
+    let graph = ford_fulkerson (from_file infile) _source _sink in
+    export outfile graph
+  (*let () = export outfile graph in 
 
-  ()
+  ()*)
 

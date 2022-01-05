@@ -18,5 +18,5 @@ val export: path -> string graph -> unit
    https://algorithms.discrete.ma.tum.de/graph-algorithms/flow-ford-fulkerson/index_en.html
 *)
 
-(*Function for max flow min cost problem*)
+(*Function for max flow min cost problem, returns graphflow * graphcost*)
 val from_file_bis: path ->string graph * string graph

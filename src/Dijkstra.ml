@@ -18,9 +18,11 @@ module Heap = Make(Label)
 
 let print_list_label list_label = printf "Label associé : ";List.iter (fun (id,cost,marked,father) -> (printf "(%d," id);(printf "%d," cost);(printf "%b," marked);(printf "%d) " father)) list_label;printf("\n")
 
+(*Auxiliary functions to solve shortest path algorithm with Dijkstra*)
 let replace liste id elem = List.map (fun x -> let (id1,_,_,_)=x in if id1=id then elem else x) liste
 let find_label liste_label id1 = List.find (fun x->let (id,_,_,_)=x in id=id1) liste_label
 
+(*Create a list of ids after that dijkstra algorithm solved the problem*)
 let create_path gr label_list id1 id2 =
   match find_label label_list id2 with
   | (_,_,false,_) -> None

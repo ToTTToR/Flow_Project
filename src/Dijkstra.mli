@@ -1,3 +1,5 @@
+(*Algo inutile...*)
+
 open Set
 open Graph
 open Tools
