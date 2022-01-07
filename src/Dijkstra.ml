@@ -1,3 +1,5 @@
+(* Algo qui ne sert à rien pour ce projet... *)
+
 open Set
 open Graph
 open Tools
