@@ -36,7 +36,7 @@ let () =
     export outfile graph;
     (*let (graph_flow,_) = (from_file_bis infile) in
     let graph2 = ford_fulkerson graph_flow _source _sink in
-    export "init" graph2*)
+    export outfile graph2*)
   else 
     let graph = ford_fulkerson (from_file infile) _source _sink in
     export outfile graph
