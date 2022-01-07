@@ -5,167 +5,201 @@
  -->
 <!-- Title: Test_Graph Pages: 1 -->
 <svg width="432pt" height="518pt"
- viewBox="0.00 0.00 432.07 517.59" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 513.59)">
+ viewBox="0.00 0.00 432.07 518.09" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 514.09)">
 <title>Test_Graph</title>
-<polygon fill="white" stroke="transparent" points="-4,4 -4,-513.59 428.07,-513.59 428.07,4 -4,4"/>
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-514.09 428.07,-514.09 428.07,4 -4,4"/>
 <!-- commercial -->
 <g id="node1" class="node">
 <title>commercial</title>
-<ellipse fill="none" stroke="black" cx="278.38" cy="-456.3" rx="53.09" ry="53.09"/>
-<text text-anchor="middle" x="278.38" y="-452.6" font-family="Times,serif" font-size="14.00">commercial</text>
+<ellipse fill="none" stroke="black" cx="278.38" cy="-251.95" rx="53.09" ry="53.09"/>
+<text text-anchor="middle" x="278.38" y="-248.25" font-family="Times,serif" font-size="14.00">commercial</text>
 </g>
 <!-- Puit -->
 <g id="node2" class="node">
 <title>Puit</title>
-<ellipse fill="none" stroke="black" cx="399.38" cy="-239.3" rx="24.9" ry="24.9"/>
-<text text-anchor="middle" x="399.38" y="-235.6" font-family="Times,serif" font-size="14.00">Puit</text>
+<ellipse fill="none" stroke="black" cx="399.38" cy="-251.95" rx="24.9" ry="24.9"/>
+<text text-anchor="middle" x="399.38" y="-248.25" font-family="Times,serif" font-size="14.00">Puit</text>
 </g>
 <!-- commercial&#45;&gt;Puit -->
 <g id="edge1" class="edge">
 <title>commercial&#45;&gt;Puit</title>
-<path fill="none" stroke="black" d="M315.24,-417.26C321.13,-409.91 326.87,-402.08 331.68,-394.3 356.07,-354.83 375.8,-304.88 387.31,-272.52"/>
-<polygon fill="black" stroke="black" points="390.76,-273.26 390.76,-262.66 384.15,-270.95 390.76,-273.26"/>
-<text text-anchor="middle" x="353.18" y="-361.1" font-family="Times,serif" font-size="14.00">1</text>
+<path fill="none" stroke="black" d="M331.92,-251.95C342.92,-251.95 354.24,-251.95 364.35,-251.95"/>
+<polygon fill="black" stroke="black" points="364.38,-255.45 374.38,-251.95 364.38,-248.45 364.38,-255.45"/>
+<text text-anchor="middle" x="353.18" y="-255.75" font-family="Times,serif" font-size="14.00">1</text>
 </g>
 <!-- jardinier -->
 <g id="node3" class="node">
 <title>jardinier</title>
-<ellipse fill="none" stroke="black" cx="278.38" cy="-40.3" rx="40.09" ry="40.09"/>
-<text text-anchor="middle" x="278.38" y="-36.6" font-family="Times,serif" font-size="14.00">jardinier</text>
+<ellipse fill="none" stroke="black" cx="278.38" cy="-139.95" rx="40.09" ry="40.09"/>
+<text text-anchor="middle" x="278.38" y="-136.25" font-family="Times,serif" font-size="14.00">jardinier</text>
 </g>
 <!-- jardinier&#45;&gt;Puit -->
 <g id="edge2" class="edge">
 <title>jardinier&#45;&gt;Puit</title>
-<path fill="none" stroke="black" d="M309.97,-65.74C317.69,-73.13 325.52,-81.57 331.68,-90.3 357.4,-126.76 376.71,-174.74 387.77,-206.27"/>
-<polygon fill="black" stroke="black" points="384.52,-207.57 391.07,-215.89 391.14,-205.3 384.52,-207.57"/>
-<text text-anchor="middle" x="353.18" y="-132.1" font-family="Times,serif" font-size="14.00">1</text>
+<path fill="none" stroke="black" d="M308.49,-167.34C328.33,-186.01 354.32,-210.48 373.25,-228.3"/>
+<polygon fill="black" stroke="black" points="370.96,-230.95 380.64,-235.25 375.75,-225.85 370.96,-230.95"/>
+<text text-anchor="middle" x="353.18" y="-215.75" font-family="Times,serif" font-size="14.00">1</text>
 </g>
 <!-- boulanger -->
 <g id="node4" class="node">
 <title>boulanger</title>
-<ellipse fill="none" stroke="black" cx="278.38" cy="-239.3" rx="46.29" ry="46.29"/>
-<text text-anchor="middle" x="278.38" y="-235.6" font-family="Times,serif" font-size="14.00">boulanger</text>
+<ellipse fill="none" stroke="black" cx="278.38" cy="-463.95" rx="46.29" ry="46.29"/>
+<text text-anchor="middle" x="278.38" y="-460.25" font-family="Times,serif" font-size="14.00">boulanger</text>
 </g>
 <!-- boulanger&#45;&gt;Puit -->
 <g id="edge3" class="edge">
 <title>boulanger&#45;&gt;Puit</title>
-<path fill="none" stroke="black" d="M324.71,-239.3C337.81,-239.3 351.89,-239.3 364.2,-239.3"/>
-<polygon fill="black" stroke="black" points="364.48,-242.8 374.48,-239.3 364.48,-235.8 364.48,-242.8"/>
-<text text-anchor="middle" x="353.18" y="-243.1" font-family="Times,serif" font-size="14.00">1</text>
+<path fill="none" stroke="black" d="M312.71,-432.73C319.52,-425.35 326.25,-417.21 331.68,-408.95 357.68,-369.35 377.22,-317.94 388.23,-284.94"/>
+<polygon fill="black" stroke="black" points="391.6,-285.92 391.37,-275.32 384.94,-283.74 391.6,-285.92"/>
+<text text-anchor="middle" x="353.18" y="-379.75" font-family="Times,serif" font-size="14.00">1</text>
 </g>
 <!-- coiffeur -->
 <g id="node5" class="node">
 <title>coiffeur</title>
-<ellipse fill="none" stroke="black" cx="278.38" cy="-137.3" rx="38.19" ry="38.19"/>
-<text text-anchor="middle" x="278.38" y="-133.6" font-family="Times,serif" font-size="14.00">coiffeur</text>
+<ellipse fill="none" stroke="black" cx="278.38" cy="-361.95" rx="38.19" ry="38.19"/>
+<text text-anchor="middle" x="278.38" y="-358.25" font-family="Times,serif" font-size="14.00">coiffeur</text>
 </g>
 <!-- coiffeur&#45;&gt;Puit -->
 <g id="edge4" class="edge">
 <title>coiffeur&#45;&gt;Puit</title>
-<path fill="none" stroke="black" d="M308.19,-161.99C327.81,-178.81 353.56,-200.88 372.52,-217.13"/>
-<polygon fill="black" stroke="black" points="370.32,-219.86 380.19,-223.71 374.88,-214.55 370.32,-219.86"/>
-<text text-anchor="middle" x="353.18" y="-207.1" font-family="Times,serif" font-size="14.00">1</text>
+<path fill="none" stroke="black" d="M307.37,-336.32C315.24,-329.1 323.8,-321.22 331.68,-313.95 345.53,-301.15 360.95,-286.83 373.47,-275.17"/>
+<polygon fill="black" stroke="black" points="375.92,-277.67 380.85,-268.29 371.15,-272.55 375.92,-277.67"/>
+<text text-anchor="middle" x="353.18" y="-300.75" font-family="Times,serif" font-size="14.00">1</text>
 </g>
 <!-- forgeron -->
 <g id="node6" class="node">
 <title>forgeron</title>
-<ellipse fill="none" stroke="black" cx="278.38" cy="-344.3" rx="40.89" ry="40.89"/>
-<text text-anchor="middle" x="278.38" y="-340.6" font-family="Times,serif" font-size="14.00">forgeron</text>
+<ellipse fill="none" stroke="black" cx="278.38" cy="-40.95" rx="40.89" ry="40.89"/>
+<text text-anchor="middle" x="278.38" y="-37.25" font-family="Times,serif" font-size="14.00">forgeron</text>
 </g>
 <!-- forgeron&#45;&gt;Puit -->
 <g id="edge5" class="edge">
 <title>forgeron&#45;&gt;Puit</title>
-<path fill="none" stroke="black" d="M309.72,-317.53C329.15,-300.38 354.1,-278.37 372.58,-262.06"/>
-<polygon fill="black" stroke="black" points="375.14,-264.47 380.32,-255.23 370.5,-259.22 375.14,-264.47"/>
-<text text-anchor="middle" x="353.18" y="-283.1" font-family="Times,serif" font-size="14.00">1</text>
+<path fill="none" stroke="black" d="M310.41,-66.54C318.04,-73.86 325.72,-82.24 331.68,-90.95 359.17,-131.11 378.45,-184.36 388.98,-218.4"/>
+<polygon fill="black" stroke="black" points="385.73,-219.75 391.96,-228.32 392.43,-217.73 385.73,-219.75"/>
+<text text-anchor="middle" x="353.18" y="-135.75" font-family="Times,serif" font-size="14.00">1</text>
+</g>
+<!-- Viktor -->
+<g id="node7" class="node">
+<title>Viktor</title>
+<ellipse fill="none" stroke="black" cx="147.64" cy="-343.95" rx="33.6" ry="33.6"/>
+<text text-anchor="middle" x="147.64" y="-340.25" font-family="Times,serif" font-size="14.00">Viktor</text>
+</g>
+<!-- Viktor&#45;&gt;commercial -->
+<g id="edge7" class="edge">
+<title>Viktor&#45;&gt;commercial</title>
+<path fill="none" stroke="black" d="M175.63,-324.66C190.27,-314.2 208.85,-300.92 226.12,-288.58"/>
+<polygon fill="black" stroke="black" points="228.37,-291.28 234.47,-282.61 224.3,-285.58 228.37,-291.28"/>
+<text text-anchor="middle" x="203.59" y="-309.75" font-family="Times,serif" font-size="14.00">1</text>
+</g>
+<!-- Viktor&#45;&gt;boulanger -->
+<g id="edge8" class="edge">
+<title>Viktor&#45;&gt;boulanger</title>
+<path fill="none" stroke="black" d="M172.86,-366.52C190.76,-383.21 215.57,-406.33 236.52,-425.86"/>
+<polygon fill="black" stroke="black" points="234.34,-428.61 244.05,-432.87 239.12,-423.49 234.34,-428.61"/>
+<text text-anchor="middle" x="203.59" y="-399.75" font-family="Times,serif" font-size="14.00">1</text>
+</g>
+<!-- Viktor&#45;&gt;coiffeur -->
+<g id="edge6" class="edge">
+<title>Viktor&#45;&gt;coiffeur</title>
+<path fill="none" stroke="black" d="M181.46,-348.54C196.13,-350.59 213.7,-353.04 229.77,-355.29"/>
+<polygon fill="black" stroke="black" points="229.68,-358.81 240.07,-356.73 230.65,-351.88 229.68,-358.81"/>
+<text text-anchor="middle" x="203.59" y="-354.75" font-family="Times,serif" font-size="14.00">1</text>
 </g>
 <!-- Cedric -->
-<g id="node7" class="node">
+<g id="node8" class="node">
 <title>Cedric</title>
-<ellipse fill="none" stroke="black" cx="147.64" cy="-281.3" rx="34.39" ry="34.39"/>
-<text text-anchor="middle" x="147.64" y="-277.6" font-family="Times,serif" font-size="14.00">Cedric</text>
+<ellipse fill="none" stroke="black" cx="147.64" cy="-251.95" rx="34.39" ry="34.39"/>
+<text text-anchor="middle" x="147.64" y="-248.25" font-family="Times,serif" font-size="14.00">Cedric</text>
 </g>
 <!-- Cedric&#45;&gt;commercial -->
-<g id="edge6" class="edge">
+<g id="edge9" class="edge">
 <title>Cedric&#45;&gt;commercial</title>
-<path fill="none" stroke="black" d="M175.43,-301.83C186.55,-311.54 198.78,-323.93 207.09,-337.3 221.12,-359.86 212.27,-371.02 225.09,-394.3 227.96,-399.51 231.31,-404.7 234.9,-409.72"/>
-<polygon fill="black" stroke="black" points="232.32,-412.11 241.13,-417.99 237.91,-407.89 232.32,-412.11"/>
-<text text-anchor="middle" x="203.59" y="-341.1" font-family="Times,serif" font-size="14.00">1</text>
+<path fill="none" stroke="black" d="M182.13,-251.95C192.06,-251.95 203.26,-251.95 214.42,-251.95"/>
+<polygon fill="black" stroke="black" points="214.61,-255.45 224.6,-251.95 214.6,-248.45 214.61,-255.45"/>
+<text text-anchor="middle" x="203.59" y="-255.75" font-family="Times,serif" font-size="14.00">1</text>
 </g>
 <!-- Cedric&#45;&gt;jardinier -->
-<g id="edge7" class="edge">
+<g id="edge10" class="edge">
 <title>Cedric&#45;&gt;jardinier</title>
-<path fill="none" stroke="black" d="M181.25,-273.05C191.04,-268.98 200.82,-263.01 207.09,-254.3 249.91,-194.77 192.63,-156.05 225.09,-90.3 228.41,-83.56 233.04,-77.24 238.18,-71.51"/>
-<polygon fill="black" stroke="black" points="240.95,-73.69 245.43,-64.09 235.94,-68.8 240.95,-73.69"/>
-<text text-anchor="middle" x="203.59" y="-265.1" font-family="Times,serif" font-size="14.00">1</text>
+<path fill="none" stroke="black" d="M174.08,-229.82C192.87,-213.47 218.76,-190.94 239.92,-172.53"/>
+<polygon fill="black" stroke="black" points="242.24,-175.16 247.48,-165.96 237.64,-169.88 242.24,-175.16"/>
+<text text-anchor="middle" x="203.59" y="-209.75" font-family="Times,serif" font-size="14.00">1</text>
 </g>
 <!-- Marie -->
-<g id="node8" class="node">
+<g id="node9" class="node">
 <title>Marie</title>
-<ellipse fill="none" stroke="black" cx="147.64" cy="-366.3" rx="32.49" ry="32.49"/>
-<text text-anchor="middle" x="147.64" y="-362.6" font-family="Times,serif" font-size="14.00">Marie</text>
+<ellipse fill="none" stroke="black" cx="147.64" cy="-166.95" rx="32.49" ry="32.49"/>
+<text text-anchor="middle" x="147.64" y="-163.25" font-family="Times,serif" font-size="14.00">Marie</text>
 </g>
 <!-- Marie&#45;&gt;commercial -->
-<g id="edge8" class="edge">
+<g id="edge11" class="edge">
 <title>Marie&#45;&gt;commercial</title>
-<path fill="none" stroke="black" d="M174.69,-384.51C189.34,-394.75 208.15,-407.9 225.67,-420.14"/>
-<polygon fill="black" stroke="black" points="223.93,-423.2 234.13,-426.06 227.94,-417.46 223.93,-423.2"/>
-<text text-anchor="middle" x="203.59" y="-409.1" font-family="Times,serif" font-size="14.00">1</text>
+<path fill="none" stroke="black" d="M180.2,-167.92C189.28,-169.21 198.93,-171.61 207.09,-175.95 214.45,-179.86 225.71,-190.92 237.08,-203.43"/>
+<polygon fill="black" stroke="black" points="234.49,-205.79 243.75,-210.93 239.71,-201.13 234.49,-205.79"/>
+<text text-anchor="middle" x="203.59" y="-179.75" font-family="Times,serif" font-size="14.00">1</text>
 </g>
 <!-- Marie&#45;&gt;forgeron -->
-<g id="edge9" class="edge">
+<g id="edge12" class="edge">
 <title>Marie&#45;&gt;forgeron</title>
-<path fill="none" stroke="black" d="M179.81,-360.97C194.09,-358.53 211.38,-355.58 227.41,-352.84"/>
-<polygon fill="black" stroke="black" points="228.45,-356.21 237.72,-351.07 227.28,-349.31 228.45,-356.21"/>
-<text text-anchor="middle" x="203.59" y="-360.1" font-family="Times,serif" font-size="14.00">1</text>
+<path fill="none" stroke="black" d="M172.06,-145.26C182.9,-135.03 195.84,-122.55 207.09,-110.95 215.41,-102.36 216.76,-99.53 225.09,-90.95 229.91,-85.98 235.07,-80.84 240.22,-75.82"/>
+<polygon fill="black" stroke="black" points="242.93,-78.06 247.69,-68.6 238.06,-73.03 242.93,-78.06"/>
+<text text-anchor="middle" x="203.59" y="-121.75" font-family="Times,serif" font-size="14.00">1</text>
 </g>
 <!-- Source -->
-<g id="node9" class="node">
+<g id="node10" class="node">
 <title>Source</title>
-<ellipse fill="none" stroke="black" cx="35.1" cy="-281.3" rx="35.19" ry="35.19"/>
-<text text-anchor="middle" x="35.1" y="-277.6" font-family="Times,serif" font-size="14.00">Source</text>
+<ellipse fill="none" stroke="black" cx="35.1" cy="-197.95" rx="35.19" ry="35.19"/>
+<text text-anchor="middle" x="35.1" y="-194.25" font-family="Times,serif" font-size="14.00">Source</text>
+</g>
+<!-- Source&#45;&gt;Viktor -->
+<g id="edge13" class="edge">
+<title>Source&#45;&gt;Viktor</title>
+<path fill="none" stroke="black" d="M57.15,-225.75C75.05,-249.39 100.84,-283.45 120.14,-308.94"/>
+<polygon fill="black" stroke="black" points="117.59,-311.37 126.41,-317.23 123.17,-307.14 117.59,-311.37"/>
+<text text-anchor="middle" x="91.69" y="-278.75" font-family="Times,serif" font-size="14.00">1</text>
 </g>
 <!-- Source&#45;&gt;Cedric -->
-<g id="edge10" class="edge">
+<g id="edge14" class="edge">
 <title>Source&#45;&gt;Cedric</title>
-<path fill="none" stroke="black" d="M70.47,-281.3C80.75,-281.3 92.16,-281.3 102.95,-281.3"/>
-<polygon fill="black" stroke="black" points="103.05,-284.8 113.05,-281.3 103.05,-277.8 103.05,-284.8"/>
-<text text-anchor="middle" x="91.69" y="-285.1" font-family="Times,serif" font-size="14.00">1</text>
+<path fill="none" stroke="black" d="M66.89,-212.99C79.33,-219.07 93.84,-226.16 107.05,-232.61"/>
+<polygon fill="black" stroke="black" points="105.87,-235.93 116.4,-237.17 108.95,-229.64 105.87,-235.93"/>
+<text text-anchor="middle" x="91.69" y="-229.75" font-family="Times,serif" font-size="14.00">1</text>
 </g>
 <!-- Source&#45;&gt;Marie -->
-<g id="edge11" class="edge">
+<g id="edge15" class="edge">
 <title>Source&#45;&gt;Marie</title>
-<path fill="none" stroke="black" d="M63.42,-302.31C78.45,-313.86 97.22,-328.29 113.12,-340.52"/>
-<polygon fill="black" stroke="black" points="111.08,-343.37 121.15,-346.69 115.35,-337.82 111.08,-343.37"/>
-<text text-anchor="middle" x="91.69" y="-330.1" font-family="Times,serif" font-size="14.00">1</text>
+<path fill="none" stroke="black" d="M68.96,-188.73C80.6,-185.47 93.83,-181.76 106.03,-178.33"/>
+<polygon fill="black" stroke="black" points="107.3,-181.61 115.98,-175.54 105.41,-174.87 107.3,-181.61"/>
+<text text-anchor="middle" x="91.69" y="-185.75" font-family="Times,serif" font-size="14.00">1</text>
 </g>
 <!-- Lucas -->
-<g id="node10" class="node">
+<g id="node11" class="node">
 <title>Lucas</title>
-<ellipse fill="none" stroke="black" cx="147.64" cy="-197.3" rx="31.7" ry="31.7"/>
-<text text-anchor="middle" x="147.64" y="-193.6" font-family="Times,serif" font-size="14.00">Lucas</text>
+<ellipse fill="none" stroke="black" cx="147.64" cy="-84.95" rx="31.7" ry="31.7"/>
+<text text-anchor="middle" x="147.64" y="-81.25" font-family="Times,serif" font-size="14.00">Lucas</text>
 </g>
 <!-- Source&#45;&gt;Lucas -->
-<g id="edge12" class="edge">
+<g id="edge16" class="edge">
 <title>Source&#45;&gt;Lucas</title>
-<path fill="none" stroke="black" d="M63.42,-260.53C78.67,-248.95 97.76,-234.44 113.81,-222.24"/>
-<polygon fill="black" stroke="black" points="116.05,-224.94 121.89,-216.1 111.81,-219.37 116.05,-224.94"/>
-<text text-anchor="middle" x="91.69" y="-243.1" font-family="Times,serif" font-size="14.00">1</text>
+<path fill="none" stroke="black" d="M60.36,-173.15C77.15,-155.98 99.59,-133.04 117.38,-114.86"/>
+<polygon fill="black" stroke="black" points="120.2,-116.98 124.69,-107.39 115.19,-112.09 120.2,-116.98"/>
+<text text-anchor="middle" x="91.69" y="-144.75" font-family="Times,serif" font-size="14.00">1</text>
 </g>
 <!-- Lucas&#45;&gt;jardinier -->
-<g id="edge13" class="edge">
+<g id="edge17" class="edge">
 <title>Lucas&#45;&gt;jardinier</title>
-<path fill="none" stroke="black" d="M165.57,-170.76C180.27,-148.46 202.66,-116.18 225.09,-90.3 229.84,-84.81 235.11,-79.26 240.42,-73.95"/>
-<polygon fill="black" stroke="black" points="242.94,-76.38 247.64,-66.88 238.05,-71.37 242.94,-76.38"/>
-<text text-anchor="middle" x="203.59" y="-124.1" font-family="Times,serif" font-size="14.00">1</text>
+<path fill="none" stroke="black" d="M179.58,-88.56C188.64,-90.2 198.43,-92.56 207.09,-95.95 217.15,-99.88 227.35,-105.29 236.74,-110.96"/>
+<polygon fill="black" stroke="black" points="235.15,-114.09 245.47,-116.45 238.87,-108.17 235.15,-114.09"/>
+<text text-anchor="middle" x="203.59" y="-99.75" font-family="Times,serif" font-size="14.00">1</text>
 </g>
 <!-- Lucas&#45;&gt;forgeron -->
-<g id="edge14" class="edge">
+<g id="edge18" class="edge">
 <title>Lucas&#45;&gt;forgeron</title>
-<path fill="none" stroke="black" d="M176.06,-211.88C187.03,-218.89 198.97,-228.21 207.09,-239.3 222.28,-260.05 211.38,-272.53 225.09,-294.3 228.95,-300.43 233.74,-306.35 238.83,-311.83"/>
-<polygon fill="black" stroke="black" points="236.39,-314.34 245.9,-319 241.37,-309.42 236.39,-314.34"/>
-<text text-anchor="middle" x="203.59" y="-243.1" font-family="Times,serif" font-size="14.00">1</text>
+<path fill="none" stroke="black" d="M173.76,-66.52C181.82,-61.39 191.01,-56.31 200.09,-52.95 208.69,-49.76 218.14,-47.41 227.38,-45.69"/>
+<polygon fill="black" stroke="black" points="227.98,-49.14 237.28,-44.06 226.85,-42.23 227.98,-49.14"/>
+<text text-anchor="middle" x="203.59" y="-56.75" font-family="Times,serif" font-size="14.00">1</text>
 </g>
 </g>
 </svg>

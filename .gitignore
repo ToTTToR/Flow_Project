@@ -8,6 +8,8 @@
 *.cmxs
 *.cmxa
 *.svg
+init
+pretty_graph
 
 # ocamlbuild working directory
 _build/*

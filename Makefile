@@ -14,8 +14,7 @@ clean :
 
 run : clean buildnat
 	@echo "\n==== RUNNING ====\n"
-	./ftest.native $(in) $(s) $(p) pretty_graph
+	./ftest.native graphs/$(in) $(s) $(p) pretty_graph
 	dot -Tsvg init > init.svg
 	dot -Tsvg pretty_graph > viz_graph.svg
-	open -a Firefox init.svg
-	open -a Firefox viz_graph.svg
+	open -a Firefox init.svg viz_graph.svg
