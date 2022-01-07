@@ -1,4 +1,4 @@
-% This is a graph.
+% This is a graph with flow and cost.
 
 n 200 300 1
 n 200 200 2

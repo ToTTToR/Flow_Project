@@ -1,4 +1,4 @@
-% This is a graph.
+% This is a graph with flow.
 
 n 20 300 0
 n 200 300 1

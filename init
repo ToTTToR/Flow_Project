@@ -1,12 +1,18 @@
 digraph Test_Graph{
-graph [pad="0.5", nodesep="0.5", ranksep="2"];
 rankdir=LR
 node[shape = circle]
-4 -> 5 [label = "20 1"]
-3 -> 5 [label = "25 2"]
-3 -> 4 [label = "20 2"]
-2 -> 4 [label = "10 4"]
-2 -> 3 [label = "25 5"]
-1 -> 3 [label = "20 6"]
-1 -> 2 [label = "30 7"]
+commercial -> Puit [label = "1"]
+jardinier -> Puit [label = "1"]
+boulanger -> Puit [label = "1"]
+coiffeur -> Puit [label = "1"]
+forgeron -> Puit [label = "1"]
+Cedric -> commercial [label = "1"]
+Cedric -> jardinier [label = "1"]
+Marie -> commercial [label = "1"]
+Marie -> forgeron [label = "1"]
+Source -> Cedric [label = "1"]
+Source -> Marie [label = "1"]
+Source -> Lucas [label = "1"]
+Lucas -> jardinier [label = "1"]
+Lucas -> forgeron [label = "1"]
 }

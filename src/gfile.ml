@@ -106,6 +106,39 @@ let from_file path =
   close_in infile ;
   final_graph
 
+let from_file_bis path =
+
+  let infile = open_in path in
+  (* Read all lines until end of file. *)
+  let rec loop (graph_flow,graph_cost) =
+    try
+      let line = input_line infile in
+    
+      (* Remove leading and trailing spaces. *)
+      let line = String.trim line in
+    
+      let (graph_flow2,graph_cost2) =
+        (* Ignore empty lines *)
+        if line = "" then (graph_flow,graph_cost)
+    
+        (* The first character of a line determines its content : n or e. *)
+        else match line.[0] with
+          | 'n' -> (read_node graph_flow line),(read_node graph_cost line)
+          | 'e' -> read_arc_bis (graph_flow,graph_cost) line
+    
+          (* It should be a comment, otherwise we complain. *)
+          | _ -> (read_comment graph_flow line),(read_comment graph_cost line)
+      in      
+      loop (graph_flow2,graph_cost2)
+    
+    with End_of_file -> (graph_flow,graph_cost) (* Done *)
+  in
+    
+  let final_graph = loop (empty_graph,empty_graph) in
+    
+  close_in infile ;
+  final_graph
+
 (* mise en place du biparti *)
 
 let export path gr =
