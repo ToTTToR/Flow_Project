@@ -17,5 +17,5 @@ run : clean buildnat
 	./ftest.native $(in) $(s) $(p) pretty_graph
 	dot -Tsvg init > init.svg
 	open -a Safari init.svg
-	dot -Tsvg pretty_graph > viz_graph2.svg
-	open -a Safari viz_graph2.svg
+	dot -Tsvg pretty_graph > viz_graph.svg
+	open -a Safari viz_graph.svg

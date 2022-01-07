@@ -1,9 +1,8 @@
 open Gfile
 open Printf
 open Flow_Algo
-open Dijkstra
-open BellmannFord
-
+open Tools
+open PersonneMetier
 let () =
 
   (* Check the number of command-line arguments *)
@@ -26,21 +25,27 @@ let () =
   and outfile = Sys.argv.(4)
 
   (* These command-line arguments are not used for the moment. *)
-  and _source = int_of_string Sys.argv.(2)
-  and _sink = int_of_string Sys.argv.(3)
+  and _source = Int.min_int
+  and _sink = Int.max_int
   in
+
+  (* Partie projet visualisation, d'un graphe de personne/métier *)
+  
+  let fromFile = from_file_personne_metier infile in
+  let graph = generateGraphPersonneMetier fromFile in
+  let graph = ford_fulkerson graph _source _sink in
+  export_personne_metier outfile graph fromFile 
+
+  (*Partie projet avec ajout de contraintes (cout) *)
+
   export "init" (from_file infile); 
-  (* Open file *)
   if infile = "graphs/graph3" || infile="graphs/graph4" then
     let graph = busacker_gowen (from_file_bis infile) _source _sink in
     export outfile graph;
+    (*Lignes de code pour tester sans la contrainte *)
     (*let (graph_flow,_) = (from_file_bis infile) in
     let graph2 = ford_fulkerson graph_flow _source _sink in
     export outfile graph2*)
   else 
     let graph = ford_fulkerson (from_file infile) _source _sink in
     export outfile graph
-  (*let () = export outfile graph in 
-
-  ()*)
-

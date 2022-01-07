@@ -1,0 +1,13 @@
+% This is a graph.
+
+m 1 forgeron 
+m 2 coiffeur
+m 3 boulanger
+m 4 jardinier
+m 5 commercial
+
+p Lucas:1 4.
+p Marie:1 5.
+p Cedric:4 5.
+
+% End of graph
