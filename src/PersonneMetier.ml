@@ -1,5 +1,6 @@
 open Graph
 open Printf
+open Tools
 
 type personne =
   {
@@ -112,7 +113,7 @@ let generateGraphPersonneMetier matchPersonneWithMetier =
   let graph = new_node graph min_int in
   let graph = createArcAndNodesForMetier matchPersonneWithMetier.metiers graph in 
   let graph = createArcAndNodesForPersonnes matchPersonneWithMetier.personnes graph in 
-  graph
+  gmap graph string_of_int
 
 let rec getPersonnebyID id (personnesList : personne list) =
     match personnesList with

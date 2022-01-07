@@ -1,5 +1,6 @@
 open Graph
 open Printf
+open Tools
 
 type personne =
   {
@@ -23,6 +24,6 @@ type matchPersonneWithMetier =
 type path = string
 
 val from_file_personne_metier: path -> matchPersonneWithMetier
-val generateGraphPersonneMetier: matchPersonneWithMetier -> int graph
+val generateGraphPersonneMetier: matchPersonneWithMetier -> string graph
 val export_personne_metier: path -> string graph -> matchPersonneWithMetier -> unit
 

@@ -31,14 +31,11 @@ let () =
   and _sink = Int.max_int
   in
 
-  (* Open file *)
+  (* Partie projet visualisation, d'un graphe de personne/métier *)
   let fromFile = from_file_personne_metier infile in
   let graph = generateGraphPersonneMetier fromFile in
-  let graph = gmap graph string_of_int in
-  let graph4= ford_fulkerson graph _source _sink in
-  (* Rewrite the graph that has been read. *)
-  let () = export_personne_metier outfile graph4 fromFile in 
+  let graph = ford_fulkerson graph _source _sink in
+  let () = export_personne_metier outfile graph fromFile in 
   printf "\n";
-
   ()
 
