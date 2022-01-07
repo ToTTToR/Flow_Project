@@ -1,7 +1,6 @@
 digraph Test_Graph{
 rankdir=LR
 node[shape = circle]
-<<<<<<< HEAD
 Lucas -> forgeron [label = "1/1"]
 Lucas -> jardinier [label = "0/1"]
 Source -> Lucas [label = "1/1"]
@@ -17,12 +16,3 @@ boulanger -> Puit [label = "0/1"]
 jardinier -> Puit [label = "1/1"]
 commercial -> Puit [label = "1/1"]
 }
-=======
-1 -> 2 [label = "25/30"]
-1 -> 3 [label = "20/20"]
-2 -> 3 [label = "15/25"]
-2 -> 4 [label = "10/10"]
-3 -> 4 [label = "10/20"]
-3 -> 5 [label = "25/25"]
-4 -> 5 [label = "20/20"]
->>>>>>> 3889e4ad37a9549f028873c4bada8876fa214318

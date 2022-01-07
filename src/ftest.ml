@@ -2,6 +2,7 @@ open Gfile
 open Printf
 open Flow_Algo
 open Tools
+open PersonneMetier
 let () =
 
   (* Check the number of command-line arguments *)
@@ -31,12 +32,12 @@ let () =
   in
 
   (* Open file *)
-  let fromFile = from_file_bis infile in
-  let graph = generateGraph fromFile in
+  let fromFile = from_file_personne_metier infile in
+  let graph = generateGraphPersonneMetier fromFile in
   let graph = gmap graph string_of_int in
   let graph4= ford_fulkerson graph _source _sink in
   (* Rewrite the graph that has been read. *)
-  let () = export_bis outfile graph4 fromFile in 
+  let () = export_personne_metier outfile graph4 fromFile in 
   printf "\n";
 
   ()
