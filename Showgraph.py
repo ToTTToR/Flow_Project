@@ -12,7 +12,7 @@ print(driver.title)
 inputtext=driver.find_element_by_class_name('ace_text-input')
 inputtext.send_keys(Keys.COMMAND,'a')
 inputtext.send_keys(Keys.BACK_SPACE)
-time.sleep(0.3)
+time.sleep(1)
 inputtext.send_keys(text)
 
 time.sleep(10)

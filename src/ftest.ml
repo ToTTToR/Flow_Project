@@ -19,8 +19,6 @@ let () =
 
 
   (* Arguments are : infile(1) source-id(2) sink-id(3) outfile(4) *)
-
-  let labels = [("id1",0,false,"");("id2",0,false,"");("id3",0,false,"")] in 
     
 
   let infile = Sys.argv.(1)
@@ -32,10 +30,22 @@ let () =
   in
 
   (* Partie projet visualisation, d'un graphe de personne/métier *)
+  
   let fromFile = from_file_personne_metier infile in
   let graph = generateGraphPersonneMetier fromFile in
   let graph = ford_fulkerson graph _source _sink in
-  let () = export_personne_metier outfile graph fromFile in 
-  printf "\n";
-  ()
+  export_personne_metier outfile graph fromFile 
 
+  (*Partie projet avec ajout de contraintes (cout) *)
+
+  export "init" (from_file infile); 
+  if infile = "graphs/graph3" || infile="graphs/graph4" then
+    let graph = busacker_gowen (from_file_bis infile) _source _sink in
+    export outfile graph;
+    (*Lignes de code pour tester sans la contrainte *)
+    (*let (graph_flow,_) = (from_file_bis infile) in
+    let graph2 = ford_fulkerson graph_flow _source _sink in
+    export outfile graph2*)
+  else 
+    let graph = ford_fulkerson (from_file infile) _source _sink in
+    export outfile graph

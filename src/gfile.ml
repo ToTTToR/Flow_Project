@@ -109,12 +109,13 @@ let from_file path =
 (* mise en place du biparti *)
 
 let export path gr =
-    let infile = open_out path in
+  let infile = open_out path in
 
-    fprintf infile "digraph Test_Graph{\n";
-    fprintf infile "rankdir=LR\n";
-    fprintf infile "node[shape = circle]\n";
-    e_iter gr (fun id1 id2 lbl -> fprintf infile "%d -> %d [label = \"%s\"]\n" id1 id2 lbl);
-    fprintf infile "}\n";
-    close_out infile ;
-    ()
+  fprintf infile "digraph Test_Graph{\n";
+  fprintf infile "graph [pad=\"0.5\", nodesep=\"0.5\", ranksep=\"2\"];\n";
+  fprintf infile "rankdir=LR\n";
+  fprintf infile "node[shape = circle]\n";
+  e_iter gr (fun id1 id2 lbl -> fprintf infile "%d -> %d [label = \"%s\"]\n" id1 id2 lbl);
+  fprintf infile "}\n";
+  close_out infile ;
+  ()
